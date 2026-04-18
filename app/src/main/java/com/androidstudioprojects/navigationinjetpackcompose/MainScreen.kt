@@ -23,7 +23,7 @@ fun MainScreen(navController: NavHostController) {
             text = "Main Screen",
             modifier = Modifier
                 .clickable {
-                    navController.navigate(Screen.DetailsScreen.name)
+                    navController.navigate(Screen.DetailsScreen.getId(3))
                 },
             fontSize = Typography.headlineLarge.fontSize
         )
