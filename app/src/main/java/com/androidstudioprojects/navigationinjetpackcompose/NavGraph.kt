@@ -29,10 +29,14 @@ fun SetupNavGraph(
             arguments = listOf(
                 navArgument(name = ARGUMENT_KEY) {
                     type = NavType.IntType
+                },
+                navArgument(name = ARGUMENT_KEY_2) {
+                    type = NavType.StringType
                 }
             )
         ) {
             Log.d("SetupNavGraph: ", it.arguments?.getInt(ARGUMENT_KEY).toString())
+            Log.d("SetupNavGraph: ", it.arguments?.getString(ARGUMENT_KEY_2).toString())
             DetailsScreen(navController)
         }
     }
