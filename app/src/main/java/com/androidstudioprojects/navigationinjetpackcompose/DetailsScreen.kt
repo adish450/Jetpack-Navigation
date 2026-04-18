@@ -23,7 +23,11 @@ fun DetailsScreen(navController: NavHostController) {
             text = "Details Screen",
             modifier = Modifier
                 .clickable {
-                    navController.popBackStack()
+                    navController.navigate(Screen.MainScreen.name) {
+                        popUpTo(Screen.MainScreen.name) {
+                            inclusive = true
+                        }
+                    }
                 },
             fontSize = Typography.headlineLarge.fontSize
         )
