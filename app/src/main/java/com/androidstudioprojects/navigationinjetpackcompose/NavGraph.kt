@@ -10,6 +10,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import androidx.navigation.navigation
 
 @Composable
 fun SetupNavGraph(
@@ -17,29 +18,10 @@ fun SetupNavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.MainScreen.name
+        startDestination = HOME_ROUTE,
+        route = ROOT_ROUTE
     ) {
-        composable(
-            route = Screen.MainScreen.name
-        ) {
-            MainScreen(navController)
-        }
-        composable(
-            route = Screen.DetailsScreen.name,
-            arguments = listOf(
-                navArgument(name = ARGUMENT_KEY) {
-                    type = NavType.IntType
-                    defaultValue = 23
-                },
-                navArgument(name = ARGUMENT_KEY_2) {
-                    type = NavType.StringType
-                    defaultValue = "adassd"
-                }
-            )
-        ) {
-            Log.d("SetupNavGraph: ", it.arguments?.getInt(ARGUMENT_KEY).toString())
-            Log.d("SetupNavGraph: ", it.arguments?.getString(ARGUMENT_KEY_2).toString())
-            DetailsScreen(navController)
-        }
+        homeNavGraph(navController)
+        authNavGraph(navController)
     }
 }

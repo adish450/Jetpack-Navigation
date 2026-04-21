@@ -10,21 +10,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.androidstudioprojects.navigationinjetpackcompose.ui.theme.NavigationInJetpackComposeTheme
 import com.androidstudioprojects.navigationinjetpackcompose.ui.theme.Typography
 
 @Composable
-fun MainScreen(navController: NavHostController) {
+fun SignupScreen(navController: NavHostController) {
     Box(modifier = Modifier
         .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "Main Screen",
+            text = "Signup Screen",
             modifier = Modifier
                 .clickable {
-                    //navController.navigate(Screen.DetailsScreen.getNameAndId(74,"Adish"))
-                    navController.navigate(AUTH_ROUTE)
                 },
             fontSize = Typography.headlineLarge.fontSize
         )
@@ -33,8 +30,6 @@ fun MainScreen(navController: NavHostController) {
 
 @Preview(showBackground = true)
 @Composable
-fun MainScreenPreview() {
-    NavigationInJetpackComposeTheme {
-        MainScreen(rememberNavController())
-    }
+fun SignupScreenPreview() {
+    LoginScreen(rememberNavController())
 }

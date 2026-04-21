@@ -8,23 +8,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.androidstudioprojects.navigationinjetpackcompose.ui.theme.NavigationInJetpackComposeTheme
 import com.androidstudioprojects.navigationinjetpackcompose.ui.theme.Typography
 
 @Composable
-fun MainScreen(navController: NavHostController) {
+fun LoginScreen(navController: NavHostController) {
     Box(modifier = Modifier
         .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "Main Screen",
+            text = "Login Screen",
             modifier = Modifier
                 .clickable {
-                    //navController.navigate(Screen.DetailsScreen.getNameAndId(74,"Adish"))
-                    navController.navigate(AUTH_ROUTE)
+                    navController.navigate(Screen.DetailsScreen.name)
                 },
             fontSize = Typography.headlineLarge.fontSize
         )
@@ -33,8 +32,6 @@ fun MainScreen(navController: NavHostController) {
 
 @Preview(showBackground = true)
 @Composable
-fun MainScreenPreview() {
-    NavigationInJetpackComposeTheme {
-        MainScreen(rememberNavController())
-    }
+fun LoginScreenPreview() {
+    LoginScreen(rememberNavController())
 }
